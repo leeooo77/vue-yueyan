@@ -8,7 +8,7 @@
       </div>
     </div>
 <!--     <router-link to="/city"> -->
-      <div class="city">城市</div>
+      <div class="city">关注</div>
     <!-- </router-link> -->
   </header>
 </template>
