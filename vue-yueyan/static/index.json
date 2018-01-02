@@ -1,0 +1,212 @@
+{
+  "ret": true,
+  "data": {
+    "city": "北京",
+    "swiper": [{
+      "id": "0001",
+      "imgUrl": "swiper-01.jpg"
+    },{
+      "id": "0002",
+      "imgUrl": "swiper-02.jpg"
+    },{
+      "id": "0003",
+      "imgUrl": "swiper-03.jpg"
+    },{
+      "id": "0004",
+      "imgUrl": "swiper-04.jpg"
+    },{
+      "id": "0005",
+      "imgUrl": "swiper-05.jpg"
+    },{
+      "id": "0006",
+      "imgUrl": "swiper-06.jpg"
+    },{
+      "id": "0007",
+      "imgUrl": "swiper-07.jpg"
+    },{
+      "id": "0008",
+      "imgUrl": "swiper-08.jpg"
+    }],
+    "icons": [{
+      "id": "0001",
+      "imgUrl": "icon-01.png",
+      "text": "景点门票"
+    },{
+      "id": "0002",
+      "imgUrl": "icon-02.png",
+      "text": "动植物园"
+    },{
+      "id": "0003",
+      "imgUrl": "icon-03.png",
+      "text": "故宫"
+    },{
+      "id": "0004",
+      "imgUrl": "icon-04.png",
+      "text": "一日游"
+    },{
+      "id": "0005",
+      "imgUrl": "icon-05.png",
+      "text": "必游榜单"
+    },{
+      "id": "0006",
+      "imgUrl": "icon-06.png",
+      "text": "滑雪季"
+    },{
+      "id": "0007",
+      "imgUrl": "icon-07.png",
+      "text": "游乐场"
+    },{
+      "id": "0008",
+      "imgUrl": "icon-08.png",
+      "text": "泡温泉"
+    },{
+      "id": "0009",
+      "imgUrl": "icon-09.png",
+      "text": "自然风光"
+    },{
+      "id": "00010",
+      "imgUrl": "icon-10.png",
+      "text": "演出"
+    },{
+      "id": "00011",
+      "imgUrl": "icon-11.png",
+      "text": "名胜古迹"
+    },{
+      "id": "00012",
+      "imgUrl": "icon-12.png",
+      "text": "周边游"
+    },{
+      "id": "00013",
+      "imgUrl": "icon-13.png",
+      "text": "城市观光"
+    },{
+      "id": "00014",
+      "imgUrl": "icon-14.png",
+      "text": "古北水镇"
+    },{
+      "id": "00015",
+      "imgUrl": "icon-15.png",
+      "text": "景点讲解"
+    },{
+      "id": "00016",
+      "imgUrl": "icon-16.png",
+      "text": "全部"
+    }],
+    "list1": [{
+      "imgUrl": "listleft.png",
+      "tit": "精选温泉",
+      "des": "5折开泡"
+    }],
+    "list2": [{
+      "imgUrl": "listright.png",
+      "tit": "冬季大促",
+      "des": "门票1元秒"
+    }],
+    "hotsight": [{
+      "id": "0001",
+      "imgUrl": "hotsight_001.jpg",
+      "tit": "故宫",
+      "des": "东方宫殿建筑代表，世界宫殿建筑典范",
+      "price": "20"
+    },{
+      "id": "0002",
+      "imgUrl": "hotsight_002.jpg",
+      "tit": "南山滑雪场",
+      "des": "北京专业级滑雪胜地",
+      "price": "97"
+    },{
+      "id": "0003",
+      "imgUrl": "hotsight_003.jpg",
+      "tit": "天安门广场",
+      "des": "我爱北京天安门，天安门上太阳升",
+      "price": "20"
+    },{
+      "id": "0004",
+      "imgUrl": "hotsight_004.jpg",
+      "tit": "世界花卉大花园",
+      "des": "揽天下奇花异草，聚世界经典园林",
+      "price": "33.1"
+    },{
+      "id": "0005",
+      "imgUrl": "hotsight_005.jpg",
+      "tit": "八达岭长城缆车",
+      "des": "巍峨雄伟尽收眼底",
+      "price": "156"
+    }],
+    "weekend": [{
+      "id": "0001",
+      "imgUrl": "weekend_001.jpg",
+      "tit": "温泉·北京",
+      "des": "细数北京温泉，温暖你的冬天"
+    },{
+      "id": "0002",
+      "imgUrl": "weekend_002.jpg",
+      "tit": "北京必游TOP10",
+      "des": "来北京必去的景点非这些地方莫属"
+    },{
+      "id": "0003",
+      "imgUrl": "weekend_003.jpg",
+      "tit": "皇城·北京",
+      "des": "数百年的宫廷庙宇，至今依旧威严霸气"
+    },{
+      "id": "0004",
+      "imgUrl": "weekend_004.jpg",
+      "tit": "博物馆·北京",
+      "des": "周末干嘛？北京很多博物馆已经免费开放啦"
+    },{
+      "id": "0005",
+      "imgUrl": "weekend_005.jpg",
+      "tit": "北京最美雪景",
+      "des": "下雪了，你知道北京哪里最美吗"
+    }],
+    "nav": [{
+      "id": "0001",
+      "icon": "&#xe634;",
+      "tit": "机票"
+    },{
+      "id": "0002",
+      "icon": "&#xe640;",
+      "tit": "酒店"
+    },{
+      "id": "0003",
+      "icon": "&#xe694;",
+      "tit": "公寓"
+    },{
+      "id": "0004",
+      "icon": "&#xe641;",
+      "tit": "团购"
+    },{
+      "id": "0005",
+      "icon": "&#xe63c;",
+      "tit": "火车票"
+    },{
+      "id": "0006",
+      "icon": "&#xe68e;",
+      "tit": "景点"
+    },{
+      "id": "0007",
+      "icon": "&#xe642;",
+      "tit": "接送机"
+    },{
+      "id": "0008",
+      "icon": "&#xe606;",
+      "tit": "度假"
+    },{
+      "id": "0009",
+      "icon": "&#xe643;",
+      "tit": "攻略"
+    },{
+      "id": "00010",
+      "icon": "&#xe830;",
+      "tit": "旅图"
+    },{
+      "id": "00011",
+      "icon": "&#xe649;",
+      "tit": "车车"
+    },{
+      "id": "00012",
+      "icon": "&#xe62f;",
+      "tit": "当地人"
+    }]
+  }
+}
