@@ -1,16 +1,22 @@
 <template>
-  <div>
+  <div class="box">
     <header-con></header-con>
+    <focus-con class="main"></focus-con>
+    <footer-nav></footer-nav>
   </div>
 </template> 
 
 <script>
   import HeaderCon from './header'
+  import FooterNav from './footerNav'
+  import FocusCon from './focus'
   import axios from 'axios'
   export default {
     name: 'Index',
     components: {
-      HeaderCon
+      HeaderCon,
+      FooterNav,
+      FocusCon
     },
     data () {
       return {}
@@ -26,7 +32,6 @@
         const body = res.data
         if (body && body.ret && body.data) {
           // body.data.swiper && (this.swiperInfo = body.data.swiper)
-          console.log(body.data)
         }
       },
       handleGetDataError () {
@@ -40,5 +45,14 @@
 </script>
 
 <style scoped lang="stylus">
-
+  .box
+    display: flex
+    flex-direction: column
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+    .main
+      flex: 1
 </style>

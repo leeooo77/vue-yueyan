@@ -1,15 +1,11 @@
 <template>
   <header class="header-con">
-    <div class="back iconfont" @click="handleBackClick">&#xe607;</div>
-    <div class="search">
-      <div class="search-con">
-        <span class="search-icon iconfont">&#xe618;</span>
-        请输入城市/景点/游玩主题
-      </div>
-    </div>
-<!--     <router-link to="/city"> -->
-      <div class="city">关注</div>
-    <!-- </router-link> -->
+    <div class="weather iconfont">&#xe625;</div>
+    <ul class="options">
+      <li class="option-item option-item-check"><a href="javascript:;">关注</a></li>
+      <li class="option-item"><a href="javascript:;">热门</a></li>
+    </ul>
+    <div class="search iconfont">&#xe64b;</div>
   </header>
 </template>
 
@@ -31,47 +27,37 @@
   @import '../../assets/style/common/varibles'
   .header-con
     display: flex
-    background: #000
+    background: #fff
     height: .88rem
-    .back
-      width: .8rem
+    box-sizing: border-box
+    padding: 0 .2rem
+    margin-top: .4rem
+    justify-content: space-between
+    .weather
+      width: .55rem
+      height: .88rem
       line-height: .88rem
-      text-align: center
-      font-weight: bold
-      font-size: .44rem
-      color: #fff
+      color: #ffd522
+      font-size: .58rem
+      font-weight: 900
+    .options
+      display: flex
+      font-size: .32rem
+      color: #333333
+      .option-item
+        width: 1.18rem
+        height: .88rem
+        box-sizing: border-box
+        border-bottom: 2px solid #333
+        margin: 0 .05rem
+        text-align: center
+        line-height: .88rem
+        font-weight: 900
     .search
-      flex: 1
-      .search-icon
-        position: relative
-        top: .02rem
-      .search-con
-        width: 100%
-        line-height: .6rem
-        margin-top: .14rem
-        background: #fff
-        border-radius: .1rem
-        text-indent: .2rem
-        color: #ccc
-    .city
-      overflow: hidden
-      position: relative
+      width: .48rem
+      height: .88rem
       line-height: .88rem
-      max-width: 1.6rem
-      padding: 0 .46rem 0 .22rem
-      float: right
-      font-size: .28rem
-      white-space: nowrap
-      text-overflow: ellipsis
-      color: #fff
-      &::before
-        position: absolute
-        top: .4rem
-        right: .16rem
-        content: '\0020'
-        width: 0
-        height: 0
-        border-left: .12rem solid transparent
-        border-right: .12rem solid transparent
-        border-top: .12rem solid #fff
+      color: #333333
+      font-size: .42rem
+      font-weight: 900
 </style>
