@@ -2,8 +2,10 @@
   <header class="header-con">
     <div class="weather iconfont">&#xe625;</div>
     <ul class="options">
-      <li class="option-item option-item-check"><a href="javascript:;">关注</a></li>
-      <li class="option-item"><a href="javascript:;">热门</a></li>
+      <li class="optionChange"
+          @click="handleFocusClick">关注</li>
+      <li class="optionItem"
+          @click="handleHotClick">热门</li>
     </ul>
     <div class="search iconfont">&#xe64b;</div>
   </header>
@@ -16,8 +18,11 @@
     },
 
     methods: {
-      handleBackClick () {
-        this.$router.go(-1)
+      handleFocusClick () {
+        this.$emit('showFocus')
+      },
+      handleHotClick () {
+        this.$emit('showHot')
       }
     }
   }
@@ -44,7 +49,14 @@
       display: flex
       font-size: .32rem
       color: #333333
-      .option-item
+      .optionItem
+        width: 1.18rem
+        height: .88rem
+        box-sizing: border-box
+        margin: 0 .05rem
+        text-align: center
+        line-height: .88rem
+      .optionChange
         width: 1.18rem
         height: .88rem
         box-sizing: border-box

@@ -50,6 +50,7 @@
       .icon
         font-size: .42rem
         font-weight: 900
+        margin: .04rem 0
     .footer-add
       height: .98rem
       font-size: .78rem

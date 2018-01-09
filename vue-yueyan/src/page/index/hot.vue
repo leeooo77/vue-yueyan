@@ -2,7 +2,7 @@
   <div class="main">
     <div class="wrapper" ref="wrapper">
       <div class="list">
-        <div class="list-item" v-for="item in focusInfo" :key="item.id">
+        <div class="list-item" v-for="item in hotInfo" :key="item.id">
           <div class="userInfo">
             <div class="user-headImg-con">
               <img class="user-headImg" :src="item.head_img">
@@ -39,9 +39,9 @@
 <script>
   import BScroll from 'better-scroll'
   export default {
-    name: 'focus',
+    name: 'hot',
     props: {
-      focusInfo: Array
+      hotInfo: Array
     },
     data () {
       return {}

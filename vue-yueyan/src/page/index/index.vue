@@ -1,7 +1,12 @@
 <template>
   <div class="box">
-    <header-con></header-con>
-    <focus-con class="main"></focus-con>
+    <header-con @showFocus="handleShowFocus" @showHot="handleShowHot"></header-con>
+    <focus-con class="main" 
+              :focusInfo="focusInfo" 
+              v-show="showFocus"></focus-con>
+    <hot-con class="main" 
+            :hotInfo="hotInfo" 
+            v-show="showHot"></hot-con>
     <footer-nav></footer-nav>
   </div>
 </template> 
@@ -10,18 +15,24 @@
   import HeaderCon from './header'
   import FooterNav from './footerNav'
   import FocusCon from './focus'
+  import HotCon from './hot'
   import axios from 'axios'
   export default {
     name: 'Index',
     components: {
       HeaderCon,
       FooterNav,
-      FocusCon
+      FocusCon,
+      HotCon
     },
     data () {
-      return {}
+      return {
+        focusInfo: [],
+        hotInfo: [],
+        showFocus: true,
+        showHot: false
+      }
     },
-    computed: {},
     methods: {
       getIndexData () {
         axios.get('/api/index.json')
@@ -30,12 +41,22 @@
       },
       handleGetDataSucc (res) {
         const body = res.data
+        console.log(body.data.focus)
         if (body && body.ret && body.data) {
-          // body.data.swiper && (this.swiperInfo = body.data.swiper)
+          body.data.focus && (this.focusInfo = body.data.focus)
+          body.data.hot && (this.hotInfo = body.data.hot)
         }
       },
       handleGetDataError () {
         console.log('请求错误')
+      },
+      handleShowFocus () {
+        this.showFocus = true
+        this.showHot = false
+      },
+      handleShowHot () {
+        this.showFocus = false
+        this.showHot = true
       }
     },
     created () {
@@ -55,4 +76,7 @@
     left: 0
     .main
       flex: 1
+      box-sizing: border-box
+      padding: 0 .2rem
+      overflow: hidden
 </style>
