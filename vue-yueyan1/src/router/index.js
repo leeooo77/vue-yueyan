@@ -2,7 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from 'page/index/index'
 import Login from '@/page/login/index'
-import Detail from '@/page/login/detail'
+import Qqlogin from '@/page/login/qqlogin'
+import Emaillogin from '@/page/login/emaillogin'
 
 Vue.use(Router)
 
@@ -17,9 +18,13 @@ export default new Router({
       name: 'login',
       component: Login
     }, {
-      path: '/detail',
-      name: 'detail',
-      component: Detail
+      path: '/qqlogin',
+      name: 'qqlogin',
+      component: Qqlogin
+    }, {
+      path: '/emaillogin',
+      name: 'emaillogin',
+      component: Emaillogin
     }
   ]
 })

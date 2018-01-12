@@ -17,6 +17,19 @@
           <input type="password" placeholder="密码" class="psd"/>
         </p>
       </div>
+      <div class="forget">忘记密码?</div>
+      <div class="loginBtnin">
+        <button class="loginBtn">登录</button>
+      </div>
+      <div class="elseLoginType">
+        <span class="iconfont icon">&#xe607;</span>
+        <span class="iconfont icon">&#xe60a;</span>
+        <span class="iconfont icon">&#xe600;</span>
+      </div>
+      <a class="register">注册新账号</a>
+    </div>
+    <div class="bgimg">
+      <img src="../../img/2.png" class="img"/>
     </div>
   </div>
 </template>
@@ -59,4 +72,46 @@
         line-height: .72rem
     .border-bottom::before
       border-color: #ababab
+  .forget
+    line-height: 0.62rem
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    color: #2f92ee
+  .loginBtnin
+    width: 100%
+    height: 1.47rem
+    display: flex
+    justify-content: center
+    align-items: flex-end
+    .loginBtn
+      width: 2.73rem
+      height: 0.9rem
+      border-radius: 0.88rem
+      display: flex
+      justify-content: center
+      align-items: center
+      color: #fff
+      font-size: 0.34rem
+      background: #2f92ee
+  .elseLoginType
+    height: 1.54rem
+    display: flex
+    justify-content: space-around
+    align-items: flex-end
+    .icon
+      font-size: 0.6rem
+  .register
+    height: 0.64rem
+    display: flex
+    justify-content: center
+    align-items: flex-end
+    font-size: 0.2rem
+    color: #2f92ee
+  .bgimg
+    width: 100%
+    position: absolute
+    bottom: 0
+    .img
+      width: 100%
 </style>
