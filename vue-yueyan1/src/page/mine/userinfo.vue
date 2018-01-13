@@ -52,6 +52,7 @@
 
 <style scoped lang="stylus">
   .main
+    height: 100%
     background: #f7f7f7
     .border-bottom::before
       border-color: #ccc
