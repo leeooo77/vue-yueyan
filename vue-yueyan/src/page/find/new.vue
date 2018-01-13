@@ -1,8 +1,19 @@
 <template>
   <div class="main">
+    <div class="new-nav">
+      <div class="new-nav-item new-article">
+        <div class="mark">优质文章</div>
+      </div>
+      <div class="new-nav-item new-autor">
+        <div class="mark">人气作者</div>
+      </div>
+      <div class="new-nav-item new-talk">
+        <div class="mark">热门话题</div>
+      </div>
+    </div>
     <div class="wrapper" ref="wrapper">
       <div class="list">
-        <div class="list-item" v-for="item in listInfo" :key="item.uid">
+        <div class="list-item" v-for="item in newInfo" :key="item.uid">
           <div class="userInfo">
             <div class="user-headImg-con">
               <img class="user-headImg" :src="item.head_icon">
@@ -39,30 +50,19 @@
 <script>
   import BScroll from 'better-scroll'
   export default {
-    name: 'indexFocus',
+    name: 'findNew',
     props: {
-      focusInfo: Array,
+      newInfo: Array,
       flag: Number
     },
     data () {
-      return {
-        moreInfo: [],
-        isLoading: false,
-        isFetching: false,
-        pageNum: 1
-      }
+      return {}
     },
     watch: {
       flag () {
         this.scroll && this.scroll.refresh()
       }
     },
-    computed: {
-      listInfo () {
-        return this.focusInfo.concat(this.moreInfo)
-      }
-    },
-    methods: {},
     mounted () {
       this.scroll = new BScroll(this.$refs.wrapper, {
         probeType: 3
@@ -78,10 +78,45 @@
   @import '../../assets/style/common/varibles'
   .main
     background: #f7f7f7
+    display: flex
+    flex-direction: column
+    .new-nav
+      height: 1rem
+      display: flex
+      justify-content: space-between
+      padding: .2rem 0
+      .new-nav-item
+        width: 2.3rem
+        height: 1rem
+        font-size: .28rem
+        color: #fff
+        line-height: 1rem
+        text-align: center
+        background: #ccc
+        border-radius: .2rem
+        position: relative
+        .mark
+          width: 2.3rem
+          height: 1rem
+          background: rgba(0, 0, 0, .1)
+          border-radius: .2rem
+          position: absolute
+          top: 0
+          left: 0
+      .new-article
+        background: url('../../../static/img/hotArticle.jpg')
+        background-size: cover
+      .new-autor
+        background: url('../../../static/img/hotAutor.jpg')
+        background-size: cover
+      .new-talk
+        background: url('../../../static/img/hotTalk.jpg')
+        background-size: cover
     .wrapper
-      height: 100%
+      flex: 1
+      overflow: hidden
       .list-item
-        margin: .6rem 0 .4rem 0
+        margin: .2rem 0 .4rem 0
         .userInfo
           display: flex
           .user-headImg-con

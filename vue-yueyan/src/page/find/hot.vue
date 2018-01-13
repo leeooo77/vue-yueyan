@@ -2,7 +2,7 @@
   <div class="main">
     <div class="wrapper" ref="wrapper">
       <div class="list">
-        <div class="list-item" v-for="item in listInfo" :key="item.uid">
+        <div class="list-item" v-for="item in hotInfo" :key="item.uid">
           <div class="userInfo">
             <div class="user-headImg-con">
               <img class="user-headImg" :src="item.head_icon">
@@ -39,30 +39,19 @@
 <script>
   import BScroll from 'better-scroll'
   export default {
-    name: 'indexFocus',
+    name: 'findHot',
     props: {
-      focusInfo: Array,
+      hotInfo: Array,
       flag: Number
     },
     data () {
-      return {
-        moreInfo: [],
-        isLoading: false,
-        isFetching: false,
-        pageNum: 1
-      }
+      return {}
     },
     watch: {
       flag () {
         this.scroll && this.scroll.refresh()
       }
     },
-    computed: {
-      listInfo () {
-        return this.focusInfo.concat(this.moreInfo)
-      }
-    },
-    methods: {},
     mounted () {
       this.scroll = new BScroll(this.$refs.wrapper, {
         probeType: 3
@@ -107,7 +96,7 @@
           margin: .1rem 0
         .user-txtImg-con
           overflow: hidden
-          width: 100%
+          width: 42%
           height: 0
           padding-bottom: 50.7%
           border-radius: .1rem

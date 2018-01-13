@@ -3,9 +3,9 @@
     <div class="weather iconfont">&#xe625;</div>
     <ul class="options">
       <li :class="{optionItem: isoptionItemf, optionChange: isoptionChangef}"
-          @click="handleFocusClick">关注</li>
+          @click="handleNewClick">最新</li>
       <li :class="{optionItem: isoptionItemh, optionChange: isoptionChangeh}"
-          @click="handleHotClick">热门</li>
+          @click="handleHotClick">最热</li>
     </ul>
     <div class="search iconfont">&#xe64b;</div>
   </header>
@@ -13,7 +13,7 @@
 
 <script>
   export default {
-    name: 'indexHeader',
+    name: 'findHeader',
     data () {
       return {
         isoptionItemf: false,
@@ -24,8 +24,8 @@
     },
 
     methods: {
-      handleFocusClick () {
-        this.$emit('showFocus')
+      handleNewClick () {
+        this.$emit('showNew')
         this.isoptionItemf = false
         this.isoptionChangef = true
         this.isoptionItemh = true
