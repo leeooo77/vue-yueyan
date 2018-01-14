@@ -24,13 +24,11 @@
         <i>商城</i>
       </div>
     </router-link>
-    <router-link to="/mine">
-      <div class="footer-item">
-        <span class="icon iconfont footer-mine" v-show="showMineNormal">&#xe60c;</span>
-        <span class="icon iconfont footer-mine" v-show="showMineCheck">&#xe60f;</span>
-        <i>我的</i>
-      </div>
-    </router-link>
+    <div class="footer-item" @click="handleMineClick">
+      <span class="icon iconfont footer-mine" v-show="showMineNormal">&#xe60c;</span>
+      <span class="icon iconfont footer-mine" v-show="showMineCheck">&#xe60f;</span>
+      <i>我的</i>
+    </div>
   </footer>
 </template>
 
@@ -72,12 +70,21 @@
           this.showMallCheck = this.showMallCheck
           this.showMallNormal = this.showMallNormal
         }
-        if (this.name === 'mine') {
+        if (this.name === 'mine' || this.name === 'toLogin' || this.name === 'set') {
           this.showMineCheck = !this.showMineCheck
           this.showMineNormal = !this.showMineNormal
         } else {
           this.showMineCheck = this.showMineCheck
           this.showMineNormal = this.showMineNormal
+        }
+      }
+    },
+    methods: {
+      handleMineClick () {
+        if (window.localStorage.loginStatus === 'true') {
+          this.$router.push('/mine')
+        } else {
+          this.$router.push('/toLogin')
         }
       }
     }

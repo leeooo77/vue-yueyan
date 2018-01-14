@@ -47,13 +47,21 @@
         errCode: null,
         errName: null,
         errPassword: null,
-        errRePassword: null
+        errRePassword: null,
+        onLogin: false
       }
     },
     methods: {
       handleButtonClick () {
         if (this.isEmail && this.isCode && this.isName && this.isPassword && this.isRePassword) {
-          alert('success')
+          this.$router.push('/mine')
+          this.onLogin = true
+          window.localStorage.username = this.emailValue
+          window.localStorage.password = this.passwordValue
+          window.localStorage.loginStatus = this.onLogin
+        } else {
+          this.onLogin = false
+          window.localStorage.loginStatus = this.onLogin
         }
       },
       handleEmailBlur () {

@@ -13,7 +13,10 @@
     </div>
     <div class="wrapper" ref="wrapper">
       <div class="list">
-        <div class="list-item" v-for="item in newInfo" :key="item.uid">
+        <transition name="loading">
+          <div v-show="isLoading" class="loading">正在加载...</div>
+        </transition>
+        <div class="list-item" v-for="item in listInfo" :key="item.uid">
           <div class="userInfo">
             <div class="user-headImg-con">
               <img class="user-headImg" :src="item.head_icon">
@@ -49,6 +52,7 @@
 
 <script>
   import BScroll from 'better-scroll'
+  import axios from 'axios'
   export default {
     name: 'findNew',
     props: {
@@ -56,17 +60,69 @@
       flag: Number
     },
     data () {
-      return {}
+      return {
+        moreInfo: [],
+        isLoading: false,
+        isFetching: false,
+        pageNum: 1
+      }
     },
     watch: {
       flag () {
         this.scroll && this.scroll.refresh()
+      },
+      listInfo () {
+        this.$nextTick(() => {
+          this.scroll.refresh()
+        })
+      }
+    },
+    computed: {
+      listInfo () {
+        return this.newInfo.concat(this.moreInfo)
+      }
+    },
+    methods: {
+      bindEvents () {
+        this.scroll.on('scroll', this.handleScroll.bind(this))
+        this.scroll.on('scrollEnd', this.handleScrollEnd.bind(this))
+      },
+      handleScroll (e) {
+        if (e.y > 90 && !this.isLoading) {
+          this.getListInfo()
+          this.isLoading = true
+        }
+      },
+      handleScrollEnd () {
+        this.isLoading = false
+      },
+      getListInfo () {
+        axios.get('/api/more.json?page=' + this.pageNum)
+          .then(this.handleGetListSucc.bind(this))
+          .catch(this.handleGetListErr.bind(this))
+      },
+      handleGetListSucc (res) {
+        res && (res = res.data)
+        if (res.data) {
+          if (res.data.moreList) {
+            this.moreInfo = this.moreInfo.concat(res.data.moreList)
+            this.pageNum += 1
+          }
+          this.isFetching = false
+        } else {
+          this.handleGetListErr()
+        }
+      },
+      handleGetListErr () {
+        this.isFetching = false
+        console.log('获取内容失败')
       }
     },
     mounted () {
       this.scroll = new BScroll(this.$refs.wrapper, {
         probeType: 3
       })
+      this.bindEvents()
     },
     activated () {
       this.scroll && this.scroll.refresh()
@@ -115,49 +171,59 @@
     .wrapper
       flex: 1
       overflow: hidden
-      .list-item
-        margin: .2rem 0 .4rem 0
-        .userInfo
-          display: flex
-          .user-headImg-con
-            overflow: hidden
-            width: .8rem
-            height: .8rem
-            border-radius: .4rem
-            .user-headImg
-              width: 100%
-          .user-desc
-            margin-left: .2rem
-            .user-name
-              font-size: .28rem
-              color: #333
-            .user-data
-              font-size: .16rem
-              color: #333
-              line-height: .38rem
-        .user-title
-          font-size: .26rem
-          color: #333
-          line-height: .42rem
-          margin: .1rem 0
-        .user-txtImg-con
-          overflow: hidden
-          width: 100%
-          height: 0
-          padding-bottom: 50.7%
-          border-radius: .1rem
-          .user-txtImg
-            width: 100%
-        .user-handle
-          display: flex
-          .handleItem
+      .list
+        padding-bottom: 1.2rem
+        .loading
+          line-height: .8rem
+          text-align: center
+          color: #000
+        .loading-enter-active, .loading-leave-active
+          transition: opacity .5s
+        .loading-enter, .loading-leave-to
+          opacity: 0
+        .list-item
+          margin: .2rem 0 .4rem 0
+          .userInfo
             display: flex
-            line-height: .54rem
+            .user-headImg-con
+              overflow: hidden
+              width: .8rem
+              height: .8rem
+              border-radius: .4rem
+              .user-headImg
+                width: 100%
+            .user-desc
+              margin-left: .2rem
+              .user-name
+                font-size: .28rem
+                color: #333
+              .user-data
+                font-size: .16rem
+                color: #333
+                line-height: .38rem
+          .user-title
+            font-size: .26rem
             color: #333
-            margin-right: .63rem
-            .iconfont
-              font-size: .18rem
-              margin-right: .1rem
-            .handleBtn
-              font-size: .18rem
+            line-height: .42rem
+            margin: .1rem 0
+          .user-txtImg-con
+            overflow: hidden
+            width: 100%
+            height: 0
+            padding-bottom: 50.7%
+            border-radius: .1rem
+            .user-txtImg
+              width: 100%
+          .user-handle
+            display: flex
+            .handleItem
+              display: flex
+              line-height: .54rem
+              color: #333
+              margin-right: .63rem
+              .iconfont
+                font-size: .18rem
+                margin-right: .1rem
+              .handleBtn
+                font-size: .18rem
 </style>
