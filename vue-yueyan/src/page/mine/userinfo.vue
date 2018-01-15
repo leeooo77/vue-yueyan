@@ -6,7 +6,7 @@
       <div></div>
     </div>
     <div class="banner">
-      <img src="../../img/7.png"/>
+      <img src="/static/img/7.png"/>
     </div>
     <div class="list">
       <ul>

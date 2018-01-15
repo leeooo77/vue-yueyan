@@ -1,7 +1,7 @@
 <template>
   <div class="main">
     <div class="banner">
-      <img src="../../img/1.png" class="bgimg"/>
+      <img src="/static/img/1.png" class="bgimg"/>
     </div>
     <button class="loginBtn" @click="handleToLogin">登录</button>
     <p class="txt">探索更多知己</p>

@@ -6,7 +6,7 @@
         <span class="mine">我</span>
         <router-link class="iconfont set" to="/set">&#xe78a;</router-link>
       </div>
-      <div class="pic"><img src="../../img/3.png" class="img"/></div>
+      <div class="pic"><img src="/static/img/3.png" class="img"/></div>
       <p class="name">辛西娅的星星</p>
       <div class="number">
         <span class="iconfont gold">&#xe63e;</span>

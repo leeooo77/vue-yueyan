@@ -7,7 +7,7 @@
     </div>
     <router-link class="banner" to="/userinfo">
       <div>
-        <img src="../../img/4.png"/>
+        <img src="/static/img/4.png"/>
         <span class="txt">幸福的旅途</span>
       </div>
       <span class="iconfont">&#xe777;</span>

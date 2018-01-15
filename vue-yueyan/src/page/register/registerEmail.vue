@@ -29,6 +29,7 @@
 </template> 
 
 <script>
+  import axios from 'axios'
   export default {
     name: 'RegisterEmail',
     data () {
@@ -59,6 +60,7 @@
           window.localStorage.username = this.emailValue
           window.localStorage.password = this.passwordValue
           window.localStorage.loginStatus = this.onLogin
+          this.sendData()
         } else {
           this.onLogin = false
           window.localStorage.loginStatus = this.onLogin
@@ -111,6 +113,25 @@
           this.isRePassword = false
           this.errRePassword = true
         }
+      },
+      sendData () {
+        axios.post('/api/v1/account', {
+          email: this.emailValue,
+          nickname: this.nameValue,
+          password: this.passwordValue,
+          reg_verify: this.codeValue,
+          reg_type: 'email',
+          method: 'POST',
+          access_token: ''
+        })
+          .then(this.handleSendDataSucc.bind(this))
+          .catch(this.handleSendDataError.bind(this))
+      },
+      handleGetDataSucc (msg) {
+        console.log(msg)
+      },
+      handleGetDataError () {
+        console.log('注册失败')
       }
     }
   }

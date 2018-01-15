@@ -23,8 +23,9 @@
 </template> 
 
 <script>
+  import axios from 'axios'
   export default {
-    name: 'RegisterEmail',
+    name: 'LoginEmail',
     data () {
       return {
         emailValue: '',
@@ -43,6 +44,7 @@
           this.$router.push('/mine')
           this.onLogin = true
           window.localStorage.loginStatus = this.onLogin
+          this.sendData()
         } else {
           this.onLogin = false
           window.localStorage.loginStatus = this.onLogin
@@ -68,6 +70,23 @@
       },
       handleToRegister () {
         this.$router.push('/register')
+      },
+      sendData () {
+        axios.post('/api/v1/login', {
+          username: this.emailValue,
+          password: this.passwordValue,
+          type: 'email',
+          method: 'POST',
+          access_token: ''
+        })
+          .then(this.handleSendDataSucc.bind(this))
+          .catch(this.handleSendDataError.bind(this))
+      },
+      handleGetDataSucc (msg) {
+        console.log(msg)
+      },
+      handleGetDataError () {
+        console.log('登录失败')
       }
     }
   }

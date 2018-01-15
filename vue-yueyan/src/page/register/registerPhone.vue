@@ -30,6 +30,7 @@
 </template> 
 
 <script>
+  import axios from 'axios'
   export default {
     name: 'RegisterPhone',
     data () {
@@ -60,6 +61,7 @@
           window.localStorage.username = this.numberValue
           window.localStorage.password = this.passwordValue
           window.localStorage.loginStatus = this.onLogin
+          this.sendData()
         } else {
           this.onLogin = false
           window.localStorage.loginStatus = this.onLogin
@@ -112,6 +114,25 @@
           this.isRePassword = false
           this.errRePassword = true
         }
+      },
+      sendData () {
+        axios.post('/api/v1/account', {
+          mobile: this.numberValue,
+          nickname: this.nameValue,
+          password: this.passwordValue,
+          reg_verify: this.codeValue,
+          reg_type: 'mobile',
+          method: 'POST',
+          access_token: ''
+        })
+          .then(this.handleSendDataSucc.bind(this))
+          .catch(this.handleSendDataError.bind(this))
+      },
+      handleGetDataSucc (msg) {
+        console.log(msg)
+      },
+      handleGetDataError () {
+        console.log('注册失败')
       }
     }
   }
